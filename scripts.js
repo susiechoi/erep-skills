@@ -1,16 +1,28 @@
+// CONSTANTS
 var ALL_IMAGE_NAMES = ["Canger14", "EManger34", "JJhappy24", "MOhappy14"];
-var HAPPY_CODINGS = [false, false, true, true];
+var CODINGS = ["Angry", "Angry", "Happy", "Happy"];
 // var ALL_IMAGE_NAMES = ["Canger14", "EManger34", "JJhappy24", "MFanger24", "MOhappy14", "NRhappy34", "PEanger14", "WFhappy14", "Chappy34", "EMhappy14", "JJanger34", "MOanger24", "MFhappy24", "NRanger14", "PEanger34", "SWanger24", "WFhappy34", "MOhappy14", "JJhappy24", "WFanger34"];
-// var HAPPY_CODINGS = [false, false, true, false, true, true, false, true, true, true, false, false, true, false, false, false, true, true, true, false]
-var allImages = [];
+// var CODINGS = ["Angry", "Angry", "Happy", "Angry", "Happy", "Happy", "Angry", "Happy", "Happy", "Happy", "Angry", "Angry", "Happy", "Angry", "Angry", "Angry", "Happy", "Happy", "Happy", "Angry"]
 var NO_BIAS = 0;
 var HAPPY_BIAS = 1;
 var ANGRY_BIAS = 2;
+var CORRECTNESS_THRESHOLD = 0.75;
+var HAPPY_INDICATOR = "Happy";
+var ANGRY_INDICATOR = "Angry";
 
+// VARS THAT CHANGE
+var allImages = [];
 var questionNumber = 0;
 var overallCorrect = 0; 
 var happyCorrect = 0;
 var angryCorrect = 0;
+
+window.onload = function() {
+	populateImages();
+	allImages = document.getElementsByTagName("img");
+    hideButton();
+    displayNextQuestion();
+}
 
 function populateImages() {
 	var imagesAsHTML = ""; 
@@ -20,13 +32,6 @@ function populateImages() {
 		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+".jpg' style='display: none'>";
 	}
 	document.getElementById("imageContainer").innerHTML = imagesAsHTML;
-}
-
-window.onload = function() {
-	populateImages();
-	allImages = document.getElementsByTagName("img");
-    hideButton();
-    displayNextQuestion();
 }
 
 function showButton() {
@@ -39,23 +44,20 @@ function hideButton() {
     document.getElementById("angryButton").style.visibility = "hidden";
 }
 
-function displayNextQuestion() {
-	setTimeout("allImages[questionNumber].style.display='none';", 1000);
-	setTimeout('showButton()', 1000);
+function recordInput(userInput) {
+	if (userInput == CODINGS[questionNumber]) {
+		overallCorrect++;
+		if (userInput == HAPPY_INDICATOR) {
+			happyCorrect++;
+		}
+		else {
+			angryCorrect++;
+		}
+	}
+	prepareNextQuestion();
 }
 
-function buttonPressed(userInput) {
-	if (userInput == "Happy" && HAPPY_CODINGS[questionNumber]) {
-		overallCorrect++;
-		happyCorrect++;
-	}
-	else if (userInput == "Angry" && !HAPPY_CODINGS[questionNumber]) {
-		overallCorrect++;
-		angryCorrect++;
-	}
-	else {
-		console.log("Wrong");
-	}
+function prepareNextQuestion() {
 	questionNumber++;
 	hideButton();
 	if (questionNumber < allImages.length) {
@@ -63,32 +65,33 @@ function buttonPressed(userInput) {
 		displayNextQuestion();
 	}
 	else {
-		calculateScore(); 
+		calculateResults(); 
 	}
 }
 
-function calculateScore() {
+function displayNextQuestion() {
+	setTimeout("allImages[questionNumber].style.display='none';", 1000);
+	setTimeout('showButton()', 1000);
+}
+
+function calculateResults() {
 	var overallFraction = overallCorrect / ALL_IMAGE_NAMES.length;
 	// assumes that 1/2 of images are happy, 1/2 angry 
 	var overallHappy = happyCorrect / (ALL_IMAGE_NAMES.length / 2);
 	var overallAngry = angryCorrect / (ALL_IMAGE_NAMES.length / 2);
-	console.log(overallFraction);
-	console.log(overallHappy);
-	console.log(overallAngry);
-	var highOverall = (overallFraction > 0.75) ? true : false; // if overall correctness > 0.75, indicate it's a high overall score 
+	var highOverall = (overallFraction > CORRECTNESS_THRESHOLD) ? true : false; // if overall correctness > 0.75, indicate it's a high overall score 
 	if (overallHappy > overallAngry) { // pro-happy bias
-		displayResults(highOverall, 1);
+		displayResults(highOverall, HAPPY_BIAS);
 	}
-	else if (overallHappy < overallAngry) { // pro-angry bias
-		displayResults(highOverall, 2);
+	else if (overallAngry > overallHappy) { // pro-angry bias
+		displayResults(highOverall, ANGRY_BIAS);
 	}
 	else { // no bias
-		displayResults(highOverall, 0);
+		displayResults(highOverall, NO_BIAS);
 	}
 }
 
 function displayResults(highOverall, bias) {
-	console.log("High overall? "+highOverall+" with bias of "+bias);
 	if (highOverall) {
 		if (bias == NO_BIAS) {
 			window.location = "highoverall_nobias.html";
