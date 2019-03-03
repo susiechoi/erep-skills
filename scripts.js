@@ -1,5 +1,5 @@
-var ALL_IMAGE_NAMES = ["EManger34.jpg", "JJhappy24.jpg", "MFanger24.jpg", "MOhappy14.jpg", "NRhappy34.jpg", "PEanger14.jpg", "WFhappy14.jpg", "Chappy34.jpg", "EMhappy14.jpg", "JJanger34.jpg", "MOanger24.jpg", "MFhappy24.jpg", "NRanger14.jpg", "PEanger34.jpg", "SWanger24.jpg", "WFhappy34.jpg", "MOhappy14.jpg", "JJhappy24.jpg", "WFanger34.jpg"];
-var HAPPY_CODINGS = [false, true, false, true, true, false, true, true, true, false, false, true, false, false, false, true, true, true, false]
+var ALL_IMAGE_NAMES = ["Canger14", "EManger34", "JJhappy24", "MFanger24", "MOhappy14", "NRhappy34", "PEanger14", "WFhappy14", "Chappy34", "EMhappy14", "JJanger34", "MOanger24", "MFhappy24", "NRanger14", "PEanger34", "SWanger24", "WFhappy34", "MOhappy14", "JJhappy24", "WFanger34"];
+var HAPPY_CODINGS = [false, false, true, false, true, true, false, true, true, true, false, false, true, false, false, false, true, true, true, false]
 var allImages = [];
 
 var questionNumber = 0;
@@ -11,8 +11,9 @@ var angryCorrect = 0;
 function populateImages() {
 	var imagesAsHTML = ""; 
 	var i;
-	for (i=0; i<ALL_IMAGE_NAMES.length; i++) {
-		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+"' style='display: none'>";
+	imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[0]+".jpg'>";
+	for (i=1; i<ALL_IMAGE_NAMES.length; i++) {
+		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+".jpg' style='display: none'>";
 	}
 	document.getElementById("imageContainer").innerHTML = imagesAsHTML;
 }
@@ -57,6 +58,9 @@ function buttonPressed(userInput) {
 	else if (userInput == "Angry" && !HAPPY_CODINGS[questionNumber]) {
 		overallCorrect++;
 		angryCorrect++;
+	}
+	else {
+		console.log("Wrong");
 	}
 	questionNumber++;
 	if (questionNumber < allImages.length) {
