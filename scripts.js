@@ -27,9 +27,9 @@ window.onload = function() {
 function populateImages() {
 	var imagesAsHTML = ""; 
 	var i;
-	imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[0]+".jpg'>";
+	imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[0]+".jpg' class='center'>";
 	for (i=1; i<ALL_IMAGE_NAMES.length; i++) {
-		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+".jpg' style='display: none'>";
+		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+".jpg' class='center' style='display: none'>";
 	}
 	document.getElementById("imageContainer").innerHTML = imagesAsHTML;
 }
