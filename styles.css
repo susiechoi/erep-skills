@@ -1,11 +1,17 @@
 body {
 	margin: 0px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 18px;
+}
+
+p {
+	padding: 50px;
 }
 
 #header {
-	background-color: #bfd2f2;
+	background-color: #a8d0e6; /* keep in mind f8e9a1 */
 	padding: 50px;
-	font-family: "Arial";
+	font-family: 'Poppins', sans-serif;
   	font-size: 40px;
 }
 
@@ -20,9 +26,9 @@ button {
   	text-align: center;
   	text-decoration: none;
   	display: inline-block;
-  	background-color: #F08080;
+  	background-color: #f76c6c;
   	color: white;
-  	font-family: "Arial";
+	font-family: 'Poppins', sans-serif;
   	font-size: 18px;
 }
 
