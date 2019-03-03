@@ -1,2 +1,2 @@
 # erep-skills-site
-website to help people recognize problems in their emotional perception &amp; recommend skills to improve their emotional regulation
+Website to help people recognize problems in their emotional perception &amp; recommend skills to improve their emotional regulation. Designed for Bass Connections research project @ Duke University.

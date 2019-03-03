@@ -1,17 +1,36 @@
-// code source: 
-https://stackoverflow.com/questions/18351395/hide-and-display-images-for-a-time-in-a-special-time-period
-var images = document.getElementsByTagName("img");
-(function(){
-    var i = 0;
-    setInterval(function(){
-        images[i].style.display = "none";
-        if (i+1 < images.length) {
-            i++;
-        }
-        else {
-            i = 0;
-        }
-        
-        images[i].style.display = "inline-block";
-    }, 1200);
-})();
+var allImages = [];
+var questionNumber = 0;
+var allUserInput = [];
+
+function showButton() {
+    document.getElementById("happyButton").style.visibility = "visible";
+    document.getElementById("angryButton").style.visibility = "visible";
+}
+
+function hideButton() {
+    document.getElementById("happyButton").style.visibility = "hidden";
+    document.getElementById("angryButton").style.visibility = "hidden";
+}
+
+function displayNextQuestion() {
+	setTimeout("allImages[questionNumber].style.display='none';", 1000);
+	setTimeout('showButton()', 1000);
+}
+
+window.onload = function() {
+	allImages = document.getElementsByTagName("img");
+    hideButton();
+    displayNextQuestion();
+}
+
+function buttonPressed(userInput) {
+	allUserInput.push(userInput);
+	console.log(allUserInput);
+	questionNumber++;
+	if (questionNumber < allImages.length) {
+		allImages[questionNumber].style.display = "block";
+		hideButton();
+		displayNextQuestion();
+	}
+}
+
