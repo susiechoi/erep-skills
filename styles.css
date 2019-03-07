@@ -8,11 +8,43 @@ p {
 	padding: 50px;
 }
 
-#header {
+#instructions {
+	margin-bottom: 0px;
+}
+
+.header {
 	background-color: #a8d0e6; /* keep in mind f8e9a1 */
 	padding: 50px;
-	font-family: 'Poppins', sans-serif;
   	font-size: 40px;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #a8d0e6;
+	font-size: 12px;
+}
+
+.disclaimer {
+	padding-top: 15px;
+	padding-bottom: 0px;
+}
+
+.bc-logo {
+	display: block;
+	margin-top: 0px;
+  	margin-left: auto;
+  	margin-right: auto;
+	width: 18%;
+}
+
+.acknowledgement {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 15px;
 }
 
 img {
