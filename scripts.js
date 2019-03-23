@@ -1,6 +1,6 @@
 // CONSTANTS
-var ALL_IMAGE_NAMES = ["Canger20", "Canger58", "Chappy20", "Chappy58", "EManger20", "EMhappy58", "JJanger20", "JJanger58", "JJhappy20", "JJhappy58", "MOanger20", "MOanger58", "MOhappy20", "MOhappy58", "NRanger20", "NRanger58", "NRhappy20", "NRhappy58", "PEanger20", "PEanger58", "PEhappy20", "PEhappy58", "PFanger20", "PFanger58", "PFhappy20", "PFhappy58", "SWanger20", "SWanger58", "SWhappy20", "SWhappy58", "WFanger20", "WFanger58", "WFhappy20", "WFhappy58"];
-var CODINGS = ["Angry", "Angry", "Happy", "Happy", "Angry", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy"];
+var ALL_IMAGE_NAMES = ["PFhappy20", "Canger20", "PFhappy58", "SWanger20", "WFanger20", "MOhappy20", "WFhappy58", "MOhappy58", "MOanger20", "PEhappy20", "WFanger58", "PEhappy58", "EManger20", "JJhappy58", "Chappy20", "Canger58", "NRhappy20", "SWhappy20", "Chappy58", "JJanger58", "JJhappy20", "MOanger58", "PEanger20", "PFanger20", "EMhappy58", "NRanger20", "NRanger58", "SWhappy58", "PFanger58", "NRhappy58", "PEanger58", "SWanger58", "JJanger20", "WFhappy20"];
+var CODINGS = ["Happy", "Angry", "Happy", "Angry", "Angry", "Happy", "Happy", "Happy", "Angry", "Happy", "Angry", "Happy", "Angry", "Happy", "Happy", "Angry", "Happy", "Happy", "Happy", "Angry", "Happy", "Angry", "Angry", "Angry", "Happy", "Angry", "Angry", "Happy", "Angry", "Happy", "Angry", "Angry", "Angry", "Happy"];
 var NO_BIAS = 0;
 var HAPPY_BIAS = 1;
 var ANGRY_BIAS = 2;
@@ -25,6 +25,7 @@ window.onload = function() {
 function populateImages() {
 	var imagesAsHTML = ""; 
 	var i;
+
 	imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[0]+".jpg' class='center'>";
 	for (i=1; i<ALL_IMAGE_NAMES.length; i++) {
 		imagesAsHTML = imagesAsHTML + "<img src='ebt_photos/"+ALL_IMAGE_NAMES[i]+".jpg' class='center' style='display: none'>";
