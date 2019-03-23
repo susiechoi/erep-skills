@@ -16,9 +16,9 @@ var happyCorrect = 0;
 var angryCorrect = 0;
 
 window.onload = function() {
+	hideButton();
 	populateImages();
 	allImages = document.getElementsByTagName("img");
-    hideButton();
     displayNextQuestion();
 }
 
