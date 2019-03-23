@@ -1,8 +1,6 @@
 // CONSTANTS
-var ALL_IMAGE_NAMES = ["Canger14", "EManger34", "JJhappy24", "MOhappy14"];
-var CODINGS = ["Angry", "Angry", "Happy", "Happy"];
-// var ALL_IMAGE_NAMES = ["Canger14", "EManger34", "JJhappy24", "MFanger24", "MOhappy14", "NRhappy34", "PEanger14", "WFhappy14", "Chappy34", "EMhappy14", "JJanger34", "MOanger24", "MFhappy24", "NRanger14", "PEanger34", "SWanger24", "WFhappy34", "MOhappy14", "JJhappy24", "WFanger34"];
-// var CODINGS = ["Angry", "Angry", "Happy", "Angry", "Happy", "Happy", "Angry", "Happy", "Happy", "Happy", "Angry", "Angry", "Happy", "Angry", "Angry", "Angry", "Happy", "Happy", "Happy", "Angry"]
+var ALL_IMAGE_NAMES = ["Canger20", "Canger58", "Chappy20", "Chappy58", "EManger20", "EMhappy58", "JJanger20", "JJanger58", "JJhappy20", "JJhappy58", "MOanger20", "MOanger58", "MOhappy20", "MOhappy58", "NRanger20", "NRanger58", "NRhappy20", "NRhappy58", "PEanger20", "PEanger58", "PEhappy20", "PEhappy58", "PFanger20", "PFanger58", "PFhappy20", "PFhappy58", "SWanger20", "SWanger58", "SWhappy20", "SWhappy58", "WFanger20", "WFanger58", "WFhappy20", "WFhappy58"];
+var CODINGS = ["Angry", "Angry", "Happy", "Happy", "Angry", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy", "Angry", "Angry", "Happy", "Happy"];
 var NO_BIAS = 0;
 var HAPPY_BIAS = 1;
 var ANGRY_BIAS = 2;
@@ -94,24 +92,24 @@ function calculateResults() {
 function displayResults(highOverall, bias) {
 	if (highOverall) {
 		if (bias == NO_BIAS) {
-			window.location = "highoverall_nobias.html";
+			window.location = "HO_NB.html";
 		}
 		else if (bias == HAPPY_BIAS) {
-			window.location = "highoverall_happybias.html";
+			window.location = "HO_HB.html";
 		}
 		else {
-			window.location = "highoverall_angrybias.html";
+			window.location = "HO_AB.html";
 		}
 	} 
 	else { // low overall 
 		if (bias == NO_BIAS) {
-			window.location = "lowoverall_nobias.html";
+			window.location = "LO_NB.html";
 		}
 		else if (bias == HAPPY_BIAS) {
-			window.location = "lowoverall_happybias.html";
+			window.location = "LO_HB.html";
 		}
 		else {
-			window.location = "lowoverall_angrybias.html";
+			window.location = "LO_AB.html";
 		}
 	}
 }

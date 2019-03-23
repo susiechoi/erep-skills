@@ -70,3 +70,8 @@ button {
 	margin-right: auto;
 	width: 25%;
 }
+
+.results p {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
