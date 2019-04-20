@@ -8,6 +8,10 @@ p {
 	padding: 50px;
 }
 
+ul {
+	padding-left: 75px;
+}
+
 #instructions {
 	margin-bottom: 0px;
 }
